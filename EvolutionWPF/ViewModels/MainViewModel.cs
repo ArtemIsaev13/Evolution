@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EvolutionCore;
+using EvolutionImageCreator;
 using EvolutionWPF.Drawing;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ internal sealed partial class MainViewModel : ObservableObject
     public void CreatePlant()
     {
         CurrentPlant = new Plant(Plant.GetRandomGenotype());
+        PlantImageCreator.SavePlantImage(CurrentPlant);
         CurrentPlantText = PlantDrawer.GetPrintedPlant(CurrentPlant);
     }
 
