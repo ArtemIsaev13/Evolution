@@ -15,7 +15,7 @@ internal static class ImageConverter
     {
         //From this page: https://stackoverflow.com/questions/26260654/wpf-converting-bitmap-to-imagesource
         MemoryStream ms = new MemoryStream();
-        ((System.Drawing.Bitmap)src).Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+        src.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
         BitmapImage image = new BitmapImage();
         image.BeginInit();
         ms.Seek(0, SeekOrigin.Begin);
