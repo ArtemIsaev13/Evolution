@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EvolutionCore\EvolutionCore.csproj" />
+    <ProjectReference Include="..\EvolutionImageCreator\EvolutionImageCreator.csproj" />
   </ItemGroup>
 
   <ItemGroup>

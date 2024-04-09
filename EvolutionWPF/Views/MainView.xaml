@@ -22,7 +22,14 @@
             FontFamily="Courier New"
             Text="{Binding CurrentPlantText}" />
 
-        <us:PlantShowingControl Grid.Column="1" Plant="{Binding CurrentPlant}" />
+        <!--<us:PlantShowingControl Grid.Column="1" Plant="{Binding CurrentPlant}" />-->
+        <Image
+            Grid.Column="1"
+            Margin="10"
+            Stretch="None"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Source="{Binding CurrentPlantImageSource}" />
 
         <StackPanel Grid.Column="2">
             <Button
