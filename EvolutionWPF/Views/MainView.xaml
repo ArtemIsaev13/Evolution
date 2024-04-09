@@ -26,6 +26,9 @@
         <Image
             Grid.Column="1"
             Margin="10"
+            Stretch="None"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Source="{Binding CurrentPlantImageSource}" />
 
         <StackPanel Grid.Column="2">
