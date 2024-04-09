@@ -18,14 +18,10 @@ internal sealed partial class MainViewModel : ObservableObject
     private string? _currentPlantText;
 
     [ObservableProperty]
-    private Bitmap? _currentPlantImage;
-
-    [ObservableProperty]
     private ImageSource? _currentPlantImageSource;
 
     public MainViewModel()
     {
-        CurrentPlantImage = new Bitmap("C:\\UserData\\_Another\\Programming\\Evolution\\EvolutionWPF\\bin\\Debug\\net7.0-windows\\Images\\PlantImage_2024-04-09_11_01_31_59.bmp");
     }
 
     [RelayCommand]
@@ -33,9 +29,8 @@ internal sealed partial class MainViewModel : ObservableObject
     {
         CurrentPlant = new Plant(Plant.GetRandomGenotype());
         CurrentPlantText = PlantDrawer.GetPrintedPlant(CurrentPlant);
-        var bitmap = PlantImageCreator.GetPlantImage(CurrentPlant);
-        CurrentPlantImageSource = Converters.ImageConverter.ConvertBitmapToBitmapImage(bitmap);
-        PlantImageCreator.SaveImage(bitmap);
+        CurrentPlantImageSource = Converters.ImageConverter
+            .ConvertBitmapToBitmapImage(PlantImageCreator.GetPlantImage(CurrentPlant));
     }
 
     [RelayCommand]
@@ -48,9 +43,8 @@ internal sealed partial class MainViewModel : ObservableObject
         }
         CurrentPlant = new Plant(CurrentPlant.GetMutatedOffspring());
         CurrentPlantText = PlantDrawer.GetPrintedPlant(CurrentPlant);
-        var bitmap = PlantImageCreator.GetPlantImage(CurrentPlant);
-        CurrentPlantImageSource = Converters.ImageConverter.ConvertBitmapToBitmapImage(bitmap);
-        PlantImageCreator.SaveImage(bitmap);
+        CurrentPlantImageSource = Converters.ImageConverter
+            .ConvertBitmapToBitmapImage(PlantImageCreator.GetPlantImage(CurrentPlant));
     }
 
 }
