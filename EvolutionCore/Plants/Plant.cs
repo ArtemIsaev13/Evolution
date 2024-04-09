@@ -13,6 +13,21 @@ namespace EvolutionCore
         public PlantCell[,] Genotype;
 
         private double _storingPoints;
+        public double StoringPoints
+        {
+            get => _storingPoints; 
+            set
+            {
+                if(value > 0)
+                {
+                    _storingPoints = value;
+                }
+                if(_storingPoints > GetStoringSize())
+                {
+                    _storingPoints = GetStoringSize();
+                }
+            }
+        }
 
         public Plant(PlantCell[,] seed)
         {
