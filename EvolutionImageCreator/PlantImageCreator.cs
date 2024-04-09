@@ -10,12 +10,8 @@ public static class PlantImageCreator
     private static readonly string _imagePath = "Images";
     private static readonly int _cellWidth = 25;
 
-    public static void SavePlantImage(Plant plant)
+    public static void SaveImage(Bitmap image)
     {
-        Bitmap image = null;
-
-        GetPlantImage(out image, plant);
-
         if (!Directory.Exists(_imagePath))
         {
             Directory.CreateDirectory(_imagePath);
@@ -25,13 +21,11 @@ public static class PlantImageCreator
             _imagePath,
             $"PlantImage_{DateTime.Now.ToString("yyyy-MM-dd_hh_mm_ss_ff") + ".bmp"}"), 
             ImageFormat.Bmp);
-
-        image.Dispose();
     }
 
-    public static void GetPlantImage(out Bitmap bitmap, Plant plant)
+    public static Bitmap GetPlantImage(Plant plant)
     {
-        bitmap = 
+        var bitmap = 
             new Bitmap(
                 plant.Fenotype.GetLength(1) * _cellWidth, 
                 plant.Fenotype.GetLength(0) * _cellWidth);
@@ -73,6 +67,8 @@ public static class PlantImageCreator
                     }
                 }
             }
+
+        return bitmap;
     }
 
     #region drawing cells
