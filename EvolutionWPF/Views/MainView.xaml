@@ -17,10 +17,16 @@
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock
-            Grid.Column="0"
+        <ScrollViewer
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Hidden"
+            Grid.Column="0">
+            <TextBlock
             FontFamily="Courier New"
-            Text="{Binding CurrentPlantText}" />
+            Text="{Binding CurrentPlantText}" 
+            TextWrapping="Wrap"
+            Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=Width}"/>
+        </ScrollViewer>
 
         <!--<us:PlantShowingControl Grid.Column="1" Plant="{Binding CurrentPlant}" />-->
         <Image
@@ -40,7 +46,14 @@
                 Height="40"
                 Command="{Binding EvolveCurrentPlantCommand}"
                 Content="Evolve" />
-            <Button Height="40" Content="-" />
+            <Button 
+                Height="40" 
+                Content="Generate location"
+                Command="{Binding CreateLocationCommand}" />
+            <Button 
+                Height="40" 
+                Content="Calculate new age" 
+                Command="{Binding CalculateOneAgeCommand}"/>
         </StackPanel>
 
     </Grid>

@@ -84,7 +84,7 @@ namespace EvolutionCore
 
         public float GetLivingCost()
         {
-            var result = 0f;
+            var result = 0.1f;
             foreach (var cell in Fenotype)
             {
                 result += cell?.GetLivingCost() ?? 0;
